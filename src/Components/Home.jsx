@@ -6,16 +6,18 @@ export default function Home(){
 
 
     async function handleFetch(){
-       const url = "http://10.24.24.219:5000"
+       const url = "http://10.24.24.13:5000"
        const options = {
         method: "GET"
        }
+
+       let dataObject = []
 
        try{
         const response = await fetch(url, options)
        const data = await response.json()
        console.log('daatatat', data)
-       setData(data)
+       setData(data[0][0])
        } catch(err){
         console.log('something terrible happend when fetching', err)
        }
@@ -25,16 +27,16 @@ export default function Home(){
         handleFetch()
     }, [])
 
-
+    console.log('smell', data)
     return(
         <section>
             <div>
                 <h2>POOOO</h2>
                 {data && data.map((oneThing, index) => (
                     <div key={index}>
-                    <p>Title:  {oneThing[1]}</p>
-                    <p>Author: {oneThing[2]}</p>
-                    <p>Pages: {oneThing[3]}</p>
+                    <p>Title:  {oneThing.title}</p>
+                    <p>Author: {oneThing.author}</p>
+                    <p>Pages: {oneThing.pages}</p>
                     </div>
                 ))}
                 
