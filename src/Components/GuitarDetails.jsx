@@ -10,7 +10,7 @@ export default function GuitarDetails() {
     const [guitar, setGuitar] = useState()
 
     async function handleFetch() {
-        const url = `http://10.24.24.13:5000/guitars/${id}`
+        const url = `http://localhost:5000/guitars/${id}`
         const options = {
             method: "GET"
         }

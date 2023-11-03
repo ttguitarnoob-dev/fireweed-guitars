@@ -5,7 +5,7 @@ export default function Guitars(){
 
 
     async function handleFetch() {
-        const url = "http://10.24.24.13:5000/guitars"
+        const url = "http://localhost:5000/guitars"
         const options = {
             method: "GET"
         }
@@ -34,6 +34,7 @@ export default function Guitars(){
             <div>
                 <h1>POOOO</h1>
                 <a href="/"><button>HOME</button></a>
+                <a href="/guitars/new"><button>Add Guitar</button></a>
                 {data && data.map((oneThing, index) => (
                     <div key={index}>
                     <p>Name:  <a href={`/guitars/${oneThing.id}`}>{oneThing.name}</a></p>
