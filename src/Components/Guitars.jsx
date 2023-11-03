@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react"
+
 export default function Guitars(){
     const [data, setData] = useState()
 
@@ -12,6 +14,7 @@ export default function Guitars(){
 
         try {
             const response = await fetch(url, options)
+            console.log('respsons', response)
             const data = await response.json()
 
             console.log('daatatat', data)
@@ -29,10 +32,11 @@ export default function Guitars(){
     return (
         <section>
             <div>
-                <h2>POOOO</h2>
+                <h1>POOOO</h1>
+                <a href="/"><button>HOME</button></a>
                 {data && data.map((oneThing, index) => (
                     <div key={index}>
-                    <p>Name:  {oneThing.name}</p>
+                    <p>Name:  <a href={`/guitars/${oneThing.id}`}>{oneThing.name}</a></p>
                     <p>Wood Type: {oneThing.wood_type}</p>
                     <p>Cost: {oneThing.cost}</p>
                     </div>
