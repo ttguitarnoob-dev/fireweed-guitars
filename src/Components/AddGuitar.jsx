@@ -41,14 +41,38 @@ export default function AddGuitar() {
             />
             <input
             type="text"
-            placeholder="Wood Type"
-            name="wood_type"
+            placeholder="Description"
+            name="description"
             onChange={handleChange}
             />
             <input
             type="text"
-            placeholder="Cost"
-            name="cost"
+            placeholder="Top Wood"
+            name="top_wood"
+            onChange={handleChange}
+            />
+            <input
+            type="text"
+            placeholder="Back and Sides Wood"
+            name="back_sides_wood"
+            onChange={handleChange}
+            />
+            <input
+            type="text"
+            placeholder="Neck Wood"
+            name="neck_wood"
+            onChange={handleChange}
+            />
+            <input
+            type="text"
+            placeholder="Shape"
+            name="shape"
+            onChange={handleChange}
+            />
+            <input
+            type="text"
+            placeholder="Construction Details"
+            name="construction"
             onChange={handleChange}
             />
             <button>Submit</button>
