@@ -11,7 +11,7 @@ export default function AddGuitar() {
     async function handleSubmit(e){
         e.preventDefault()
         console.log('submitted', initialInput)
-        const url = "http://localhost:5000/guitars"
+        const url = "https://flaskapi.ttguitarnoob.cloud/guitars"
         const options = {
             method: "POST",
             body: JSON.stringify(initialInput),
@@ -22,6 +22,8 @@ export default function AddGuitar() {
 
         try {
             const response = await fetch(url, options)
+            const parsedGuiitar = await response.json()
+            return parsedGuiitar
         } catch(err) {
             console.log('the world ended when trying to create that', err)
         }

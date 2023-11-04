@@ -5,12 +5,11 @@ export default function Guitars(){
 
 
     async function handleFetch() {
-        const url = "http://localhost:5000/guitars"
+        const url = "https://flaskapi.ttguitarnoob.cloud/guitars"
         const options = {
             method: "GET"
         }
 
-        let dataObject = []
 
         try {
             const response = await fetch(url, options)
@@ -38,8 +37,7 @@ export default function Guitars(){
                 {data && data.map((oneThing, index) => (
                     <div key={index}>
                     <p>Name:  <a href={`/guitars/${oneThing.id}`}>{oneThing.name}</a></p>
-                    <p>Wood Type: {oneThing.wood_type}</p>
-                    <p>Cost: {oneThing.cost}</p>
+                    <p>Description: {oneThing.description}</p>
                     </div>
                 ))}
                 

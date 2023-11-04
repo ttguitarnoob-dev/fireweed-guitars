@@ -10,7 +10,7 @@ export default function GuitarDetails() {
     const [guitar, setGuitar] = useState()
 
     async function handleFetch() {
-        const url = `http://localhost:5000/guitars/${id}`
+        const url = `https://flaskapi.ttguitarnoob.cloud/guitars/${id}`
         const options = {
             method: "GET"
         }
@@ -36,12 +36,23 @@ export default function GuitarDetails() {
         <section>
             <h1>DETIlalss</h1>
             <a href="/guitars"><button>Back to guitars</button></a>
-            {guitar && 
-            <div>
-                <p>Name: {guitar.name}</p>
-                <p>Wood Type: {guitar.wood_type}</p>
-                <p>Cost: {guitar.cost}</p>
-            </div>
+            {guitar &&
+                <div>
+                    <h2>Name</h2>
+                    <p>{guitar.name}</p>
+                    <h2>Description</h2>
+                    <p>{guitar.description}</p>
+                    <h2>Top Wood</h2>
+                    <p>{guitar.top_wood}</p>
+                    <h2>Back and Sides Wood</h2>
+                    <p>{guitar.back_sides_wood}</p>
+                    <h2>Neck Wood</h2>
+                    <p>{guitar.neck_wood}</p>
+                    <h2>Shape</h2>
+                    <p>{guitar.shape}</p>
+                    <h2>Construction Details</h2>
+                    <p> {guitar.construction}</p>
+                </div>
             }
         </section>
     )
