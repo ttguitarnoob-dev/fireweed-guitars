@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom"
+
 export default function AddGuitar() {
 
     let initialInput = {}
+    const navigate = useNavigate()
 
     function handleChange(e){
         initialInput[e.target.name] = e.target.value
@@ -23,6 +26,7 @@ export default function AddGuitar() {
         try {
             const response = await fetch(url, options)
             const parsedGuiitar = await response.json()
+            navigate('/guitars')
             return parsedGuiitar
         } catch(err) {
             console.log('the world ended when trying to create that', err)
