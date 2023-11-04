@@ -25,9 +25,10 @@ export default function AddGuitar() {
 
         try {
             const response = await fetch(url, options)
-            const parsedGuiitar = await response.json()
+            console.log('here')
+            console.log('here 2')
             navigate('/guitars')
-            return parsedGuiitar
+            return response
         } catch(err) {
             console.log('the world ended when trying to create that', err)
         }
@@ -36,6 +37,7 @@ export default function AddGuitar() {
     return(
         <section>
             <h1>Add Guitar</h1>
+            <a href="/guitars" ><button>back to guitars</button></a>
         <form onSubmit={handleSubmit}>
             <input
             type="text"
