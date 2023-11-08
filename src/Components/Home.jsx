@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+
+import BgImage from "./UI Elements/BgImage"
 
 export default function Home() {
 
@@ -6,6 +7,7 @@ export default function Home() {
         <section>
             <h1>HOOOOME</h1>
             <a href="/guitars"><button>GUITARS</button></a>
+            <BgImage imgPath = "https://wallpapercave.com/wp/wp2465235.jpg" />
         </section>
     )
 }
