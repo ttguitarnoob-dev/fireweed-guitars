@@ -9,7 +9,7 @@ export default function Home() {
             <h1>HOOOOME</h1>
             <a href="/guitars"><button>GUITARS</button></a>
             <BgImage imgPath = "https://wallpapercave.com/wp/wp2465235.jpg" />
-            <HomeBio />
+            <HomeBio imgPath = "https://picsum.photos/400" bgColor="#302e29" />
         </section>
     )
 }
