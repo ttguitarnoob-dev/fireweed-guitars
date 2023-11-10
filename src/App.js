@@ -6,6 +6,7 @@ import Guitars from './Components/Guitars';
 import GuitarDetails from './Components/GuitarDetails';
 import AddGuitar from './Components/AddGuitar';
 import { useEffect, useState } from 'react';
+import About from './Components/About';
 
 
 function App() {
@@ -39,6 +40,7 @@ useEffect(() => {
     <div className="App">
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
         <Route path='/guitars' element={<Guitars guitars = {guitars} />} />
         <Route path='/guitars/:id' element={<GuitarDetails />} />
         <Route path='/guitars/new' element={<AddGuitar />} />
