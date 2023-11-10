@@ -1,8 +1,9 @@
 
+import InfoSection from "./InfoSection"
 import CardSection from "./UI Elements/CardSection"
 
-export default function Guitars({ guitars }){
-    
+export default function Guitars({ guitars }) {
+
 
     return (
         <section>
@@ -11,8 +12,10 @@ export default function Guitars({ guitars }){
                 <h1>POOOO</h1>
                 <a href="/"><button>HOME</button></a>
                 <a href="/guitars/new"><button>Add Guitar</button></a>
-               
-                 <CardSection dataArray={guitars} imageUrl={"https://picsum.photos/300"} linkUrl="/guitars"/>
+                <InfoSection
+                    title="Guitars"
+                    text = "Explore some of the cool guitars we made" />
+                <CardSection dataArray={guitars} imageUrl={"https://picsum.photos/300"} linkUrl="/guitars" />
             </div>
         </section>
     )

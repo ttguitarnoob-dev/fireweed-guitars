@@ -7,9 +7,11 @@ export default function InfoSection({ imgPath, bgColor, text, title }) {
                 <h2>{title}</h2>
                 <p>{text}</p>
             </div>
-            <div>
-                <img src={imgPath} alt="bio" style={{ borderRadius: "2rem", maxWidth: "90vw" }}></img>
-            </div>
+            {imgPath &&
+                <div>
+                    <img src={imgPath} alt="bio" style={{ borderRadius: "2rem", maxWidth: "90vw" }}></img>
+                </div>
+            }
         </section>
     )
 }
