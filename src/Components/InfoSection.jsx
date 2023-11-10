@@ -1,4 +1,4 @@
-export default function HomeBio({ imgPath, bgColor, text, title }) {
+export default function InfoSection({ imgPath, bgColor, text, title }) {
 
 
     return (
@@ -8,7 +8,7 @@ export default function HomeBio({ imgPath, bgColor, text, title }) {
                 <p>{text}</p>
             </div>
             <div>
-                <img src={imgPath} alt="bio" style={{borderRadius: "2rem", maxWidth: "90vw"}}></img>
+                <img src={imgPath} alt="bio" style={{ borderRadius: "2rem", maxWidth: "90vw" }}></img>
             </div>
         </section>
     )
