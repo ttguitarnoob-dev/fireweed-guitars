@@ -20,7 +20,7 @@ export default function InfoSection({ imgPath, bgColor, text, title, isFlipped }
                         <img src={imgPath} alt="Hello" style={{ borderRadius: "20px" }} />
                     </div>}
                     <div className="text-paragraph">
-                        <h2>{title}</h2>
+                        {title && <h2>{title}</h2>}
                         <p>{text}</p>
                     </div>
 
