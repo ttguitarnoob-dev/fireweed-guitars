@@ -15,7 +15,15 @@ export default function Home() {
                 bgColor="#302e29"
                 title="BIOOOO"
                 text="There is so much to say in this bio but none of it is coming to mind because whenever there is something good to say I have nothing to say but whenever there is nothing good to say I have tons to say so it makes no sense but I'm saying so much right now but not actually saying anything It's an incredible ability I have and I have no idea why I capitalized ITS"
+                isFlipped={false}
 
+            />
+            <InfoSection
+                imgPath="https://picsum.photos/400"
+                bgColor="#494e54"
+                title="More Info"
+                text="There is so much to say in this bio but none of it is coming to mind because whenever there is something good to say I have nothing to say but whenever there is nothing good to say I have tons to say so it makes no sense but I'm saying so much right now but not actually saying anything It's an incredible ability I have and I have no idea why I capitalized ITS"
+                isFlipped={true}
 
             />
         </section>
