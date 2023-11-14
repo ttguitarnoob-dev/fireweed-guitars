@@ -34,8 +34,6 @@ export default function GuitarDetails() {
 
     return (
         <section>
-            <h1>DETIlalss</h1>
-            <a href="/guitars"><button>Back to guitars</button></a>
             {guitar &&
                 <div>
                     <h2>Name</h2>

@@ -12,7 +12,7 @@ export default function NavigationBar() {
       ];
 
     return (
-        <Navbar       classNames={{
+        <Navbar classNames={{
             item: [
               "flex",
               "relative",
@@ -27,7 +27,9 @@ export default function NavigationBar() {
               "data-[active=true]:after:rounded-[2px]",
               "data-[active=true]:after:bg-primary",
             ],
-          }} onMenuOpenChange={setIsMenuOpen}>
+          }} 
+          onMenuOpenChange={setIsMenuOpen}
+          >
         <NavbarContent>
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -40,26 +42,20 @@ export default function NavigationBar() {
   
         <NavbarContent className="hidden sm:flex gap-4" justify="center">
           <NavbarItem>
-            <Link color="foreground" href="#">
-              Features
+            <Link color="foreground" href="/">
+              Home
             </Link>
           </NavbarItem>
           <NavbarItem >
-            <Link href="#" aria-current="page">
-              Customers
+            <Link color="foreground" href="/guitars">
+              Guitars
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="#">
-              Integrations
+            <Link color="foreground" href="/about">
+              About
             </Link>
           </NavbarItem>
-        </NavbarContent>
-        <NavbarContent justify="end">
-          <NavbarItem className="hidden lg:flex">
-            <Link href="#">Login</Link>
-          </NavbarItem>
-          
         </NavbarContent>
         <NavbarMenu>
           {menuItems.map((item, index) => (
