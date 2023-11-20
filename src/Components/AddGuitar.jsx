@@ -11,6 +11,10 @@ export default function AddGuitar() {
         console.log('cahnaged', initialInput)
     }
 
+    function handlePhotoChange(e) {
+        console.log('photochanged', e.target.files)
+    }
+
     async function handleSubmit(e){
         e.preventDefault()
         console.log('submitted', initialInput)
@@ -80,6 +84,13 @@ export default function AddGuitar() {
             placeholder="Construction Details"
             name="construction"
             onChange={handleChange}
+            />
+            <input
+            type="file"
+            placeholder="Construction Details"
+            name="photos"
+            multiple
+            onChange={handlePhotoChange}
             />
             <button>Submit</button>
         </form>
