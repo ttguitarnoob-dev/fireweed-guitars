@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { Carousel } from "react-responsive-carousel"
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 
 export default function GuitarDetails() {
@@ -50,9 +52,19 @@ export default function GuitarDetails() {
                     <p>{guitar.shape}</p>
                     <h2>Construction Details</h2>
                     <p> {guitar.construction}</p>
-                    {guitar.photos && guitar.photos.map((onePhoto, index) => (
-                        <img src={onePhoto} height={400} width={400}></img>
-                    ))}
+                    <div className="carousel-container">
+                        <Carousel
+                            autoPlay
+                            infiniteLoop
+                        >
+                            {guitar.photos && guitar.photos.map((onePhoto, index) => (
+                                <div>
+                                    <img src={onePhoto} />
+                                    <p className="legend">{`${guitar.name} Image ${index + 1}`}</p>
+                                </div>
+                            ))}
+                        </Carousel>
+                    </div>
                 </div>
             }
         </section>

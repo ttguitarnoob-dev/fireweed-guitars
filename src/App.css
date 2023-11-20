@@ -54,3 +54,8 @@ a {
   padding: 2rem;
 }
 
+.carousel-container {
+  border-radius: 20px;
+  width: 40vw;
+  max-height: 400px;
+}
