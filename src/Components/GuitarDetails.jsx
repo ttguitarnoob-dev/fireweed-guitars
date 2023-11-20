@@ -50,6 +50,9 @@ export default function GuitarDetails() {
                     <p>{guitar.shape}</p>
                     <h2>Construction Details</h2>
                     <p> {guitar.construction}</p>
+                    {guitar.photos && guitar.photos.map((onePhoto, index) => (
+                        <img src={onePhoto} height={400} width={400}></img>
+                    ))}
                 </div>
             }
         </section>

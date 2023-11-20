@@ -9,7 +9,7 @@ export default function Guitars({ guitars }) {
             <>
                 {guitars && guitars.map((oneGuitar, index) => (
                     <CardInfoSection
-                    imgPath="https://picsum.photos/400"
+                    imgPath={oneGuitar.photos[0]}
                     bgColor={index}
                     title={oneGuitar.name}
                     text={oneGuitar.description}
