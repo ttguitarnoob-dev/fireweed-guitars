@@ -16,7 +16,7 @@ export default function CardInfoSection({ imgPath, bgColor, text, title, id }) {
         <section className="home-bio" style={{ background: pickColor() }}>
             <>
                 <div>
-                    <Card isFooterBlurred className="w-[400px] h-[400px] col-span-12 sm:col-span-7">
+                    <Card isFooterBlurred className="w-[360px] h-[360px] col-span-12 sm:col-span-7">
                         <Image
                             removeWrapper
                             alt="Relaxing app background"
@@ -35,7 +35,7 @@ export default function CardInfoSection({ imgPath, bgColor, text, title, id }) {
                     </Card>
                 </div>
                 <div className="text-paragraph">
-                    {title && <h2>{title}</h2>}
+                    {title && <h2 className="font-medium text-2xl">{title}</h2>}
                     <p>{text}</p>
                 </div>
 
