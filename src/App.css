@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@500&display=swap');
+
 
 .App {
   text-align: center;
@@ -58,4 +60,14 @@ a {
   border-radius: 20px;
   width: 40vw;
   max-height: 400px;
+}
+
+.guitar-name {
+  font-size: 3rem;
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+.details-section {
+  background: linear-gradient(310deg, rgba(19,18,15,1) 17%, rgba(59,57,51,1) 100%);
+  padding: 2rem;
 }

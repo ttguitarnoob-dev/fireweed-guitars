@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Card, Image, CardFooter, Button, Link } from "@nextui-org/react"
 
 
 export default function GuitarDetails() {
@@ -37,8 +38,49 @@ export default function GuitarDetails() {
     return (
         <section>
             {guitar &&
-                <div>
-                    <h2>Name</h2>
+
+                <section className="details-section">
+                    <div>
+                        <h2 className="guitar-name">{guitar.name}</h2>
+                        <h2>Description</h2>
+                        <p>{guitar.description}</p>
+                        <h2>Top Wood</h2>
+                        <p>{guitar.top_wood}</p>
+                        <h2>Back and Sides Wood</h2>
+                        <p>{guitar.back_sides_wood}</p>
+                        <h2>Neck Wood</h2>
+                        <p>{guitar.neck_wood}</p>
+                        <h2>Shape</h2>
+                        <p>{guitar.shape}</p>
+                        <h2>Construction Details</h2>
+                        <p> {guitar.construction}</p>
+
+                    </div>
+                    <div>
+                        {guitar.photos && guitar.photos.map((onePhoto, index) => (
+                            <div>
+                                <Card isFooterBlurred className="w-[250px] h-[250px] col-span-12 sm:col-span-7">
+                                    <Image
+                                        removeWrapper
+                                        alt="Relaxing app background"
+                                        className="z-0 w-full h-full object-cover"
+                                        src={onePhoto}
+                                    />
+                                    <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
+                                        <div className="flex flex-grow gap-2 items-center">
+                                            <div className="flex flex-col">
+
+                                                
+                                            </div>
+                                        </div>
+                                        <Button radius="full" size="sm">Expand Photo</Button>
+                                    </CardFooter>
+                                </Card>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* <h2>Name</h2>
                     <p>{guitar.name}</p>
                     <h2>Description</h2>
                     <p>{guitar.description}</p>
@@ -51,8 +93,8 @@ export default function GuitarDetails() {
                     <h2>Shape</h2>
                     <p>{guitar.shape}</p>
                     <h2>Construction Details</h2>
-                    <p> {guitar.construction}</p>
-                    <div className="carousel-container">
+                    <p> {guitar.construction}</p> */}
+                    {/* <div className="carousel-container">
                         <Carousel
                             autoPlay
                             infiniteLoop
@@ -64,8 +106,8 @@ export default function GuitarDetails() {
                                 </div>
                             ))}
                         </Carousel>
-                    </div>
-                </div>
+                    </div> */}
+                </section>
             }
         </section>
     )
