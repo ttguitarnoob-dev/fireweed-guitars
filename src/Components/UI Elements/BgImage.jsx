@@ -1,11 +1,16 @@
-export default function BgImage({ imgPath }){
+import { Image } from "@nextui-org/react"
+
+export default function BgImage({ imgPath }) {
 
 
-    return(
+    return (
         <section className="img-section">
-           
-            <img src={imgPath} alt="guitar background"></img>
-            
+
+            <Image
+                src={imgPath}
+                alt="Background Section"
+                radius="none"
+            />
         </section>
     )
 }

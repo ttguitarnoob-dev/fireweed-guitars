@@ -1,3 +1,5 @@
+import { Image } from "@nextui-org/react"
+
 export default function InfoSection({ imgPath, bgColor, text, title, isFlipped }) {
 
     const DisplayOrder = () => {
@@ -9,7 +11,12 @@ export default function InfoSection({ imgPath, bgColor, text, title, isFlipped }
                         <p>{text}</p>
                     </div>
                     {imgPath && <div>
-                        <img src={imgPath} alt="Hello" style={{ borderRadius: "20px" }} />
+                        <Image
+                            src={imgPath}
+                            alt="Info Section"
+                            loading="lazy"
+                        />
+
                     </div>}
                 </>
             )
@@ -17,7 +24,11 @@ export default function InfoSection({ imgPath, bgColor, text, title, isFlipped }
             return (
                 <>
                     {imgPath && <div>
-                        <img src={imgPath} alt="Hello" style={{ borderRadius: "20px" }} />
+                        <Image
+                            loading="lazy"
+                            src={imgPath}
+                            alt="Info Section"
+                        />
                     </div>}
                     <div className="text-paragraph">
                         {title && <h2 className="title font-medium text-5xl">{title}</h2>}
