@@ -2,7 +2,9 @@ import { useNavigate } from "react-router-dom"
 
 export default function AddGuitar() {
 
-    let initialInput = {}
+    let initialInput = {
+        photos: []
+    }
     const navigate = useNavigate()
 
     function handleChange(e){
@@ -12,7 +14,8 @@ export default function AddGuitar() {
     }
 
     function handlePhotoChange(e) {
-        console.log('photochanged', e.target.files)
+        console.log('photochanged', e.target.files[0].name)
+        initialInput.photos.push(e.target.files[0].name)
     }
 
     async function handleSubmit(e){

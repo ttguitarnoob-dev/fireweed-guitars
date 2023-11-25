@@ -3,7 +3,7 @@ import { Card, Image, CardFooter, Button, Link } from "@nextui-org/react"
 export default function CardInfoSection({ imgPath, bgColor, text, title, id }) {
 
     function pickColor() {
-        if (bgColor % 2 == 0) {
+        if (bgColor % 2 === 0) {
             return "linear-gradient(225deg, rgba(40,38,33,1) 17%, rgba(80,77,68,1) 76%, rgba(33,33,32,1) 100%)"
         } else {
             return "linear-gradient(310deg, rgba(15,17,19,1) 17%, rgba(73,78,84,1) 100%)"
@@ -20,7 +20,7 @@ export default function CardInfoSection({ imgPath, bgColor, text, title, id }) {
                         <Image
                             isZoomed
                             removeWrapper
-                            alt="Relaxing app background"
+                            alt={imgPath}
                             className="z-0 w-full h-full object-cover"
                             src={imgPath}
                         />
