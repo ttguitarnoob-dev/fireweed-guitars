@@ -15,7 +15,9 @@ export default function AddGuitar() {
 
     function handlePhotoChange(e) {
         console.log('photochanged', e.target.files[0].name)
-        initialInput.photos.push(e.target.files[0].name)
+        for (let i = 0; i < e.target.files.length; i++) {
+            initialInput.photos.push(`/static/media/${e.target.files[i].name}`)
+        }
     }
 
     async function handleSubmit(e){
