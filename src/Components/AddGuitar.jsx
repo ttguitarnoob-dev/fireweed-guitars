@@ -5,6 +5,8 @@ export default function AddGuitar() {
     let initialInput = {
         photos: []
     }
+
+    let fileList = []
     const navigate = useNavigate()
 
     function handleChange(e){
@@ -14,16 +16,18 @@ export default function AddGuitar() {
     }
 
     function handlePhotoChange(e) {
-        console.log('photochanged', e.target.files[0].name)
+        console.log('photochanged', e.target.files)
         for (let i = 0; i < e.target.files.length; i++) {
             initialInput.photos.push(`/static/media/${e.target.files[i].name}`)
         }
+        fileList = e.target.files
     }
 
     async function handleSubmit(e){
         e.preventDefault()
         console.log('submitted', initialInput)
         const url = "https://flaskapi.ttguitarnoob.cloud/guitars"
+        const photoUrl = "http://localhost:3005/photos"
         const options = {
             method: "POST",
             body: JSON.stringify(initialInput),
@@ -31,23 +35,36 @@ export default function AddGuitar() {
                 "Content-Type": "application/json"
             },
         }
+        console.log('submittadaada', fileList)
 
-        try {
-            const response = await fetch(url, options)
-            console.log('here')
-            console.log('here 2')
-            navigate('/guitars')
-            return response
-        } catch(err) {
-            console.log('the world ended when trying to create that', err)
+        try{
+            await fetch(photoUrl, {
+                method: "POST",
+                headers: {
+                    "Content-type": "multipart/form-data"
+                },
+                body: fileList
+            })
+        } catch (err) {
+            console.log('stupidity happened in general', err)
         }
+
+        // try {
+        //     const response = await fetch(url, options)
+        //     console.log('here')
+        //     console.log('here 2')
+        //     navigate('/guitars')
+        //     return response
+        // } catch(err) {
+        //     console.log('the world ended when trying to create that', err)
+        // }
     }
 
     return(
         <section>
             <h1>Add Guitar</h1>
             <a href="/guitars" ><button>back to guitars</button></a>
-        <form onSubmit={handleSubmit}>
+        <form enctype="multipart/form-data" onSubmit={handleSubmit}>
             <input
             type="text"
             placeholder="Name"
@@ -92,8 +109,9 @@ export default function AddGuitar() {
             />
             <input
             type="file"
+            id="file"
             placeholder="Construction Details"
-            name="photos"
+            name="file"
             multiple
             onChange={handlePhotoChange}
             />

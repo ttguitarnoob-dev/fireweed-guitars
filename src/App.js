@@ -9,6 +9,7 @@ import AddGuitar from './Components/AddGuitar';
 import { useEffect, useState } from 'react';
 import About from './Components/About';
 import NavigationBar from './Components/UI Elements/NavigationBar';
+import ImageUpload from './Components/ImageUpload';
 
 
 
@@ -50,6 +51,7 @@ function App() {
           <Route path='/guitars' element={<Guitars guitars={guitars} />} />
           <Route path='/guitars/:id' element={<GuitarDetails />} />
           <Route path='/guitars/new' element={<AddGuitar />} />
+          <Route path='/guitars/news' element={<ImageUpload />} />
         </Routes>
       </div>
     </NextUIProvider>
