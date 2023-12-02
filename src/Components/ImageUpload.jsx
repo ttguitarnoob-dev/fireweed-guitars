@@ -16,7 +16,7 @@ export default function ImageUpload() {
                 formData.append('file', file[i]);
                 console.log('appended', file[i])
     
-                await axios.post('http://10.24.24.219:3005/photos', formData, {
+                await axios.post('https://fireweed-photo.ttguitarnoob.cloud/photos', formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },
