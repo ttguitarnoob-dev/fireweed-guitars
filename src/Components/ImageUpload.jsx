@@ -5,29 +5,33 @@ export default function ImageUpload() {
     const [file, setFile] = useState(null);
 
     const handleFileChange = (event) => {
-        setFile(event.target.files[0]);
+        setFile(event.target.files);
+        console.log("we settni state", event.target.files)
     };
 
     const handleUpload = async () => {
-        try {
-            const formData = new FormData();
-            formData.append('file', file);
-
-            await axios.post('http://127.0.0.1:3005/photos', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
-
-            console.log('File uploaded successfully');
-        } catch (error) {
-            console.error('Error uploading file:', error.message);
+        for (let i = 0; i < file.length; i++) {
+            try {
+                const formData = new FormData();
+                formData.append('file', file[i]);
+                console.log('appended', file[i])
+    
+                await axios.post('http://10.24.24.219:3005/photos', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
+                });
+    
+                console.log('File uploaded successfully');
+            } catch (error) {
+                console.error('Error uploading file:', error.message);
+            }
         }
     };
 
     return (
         <div>
-            <input type="file" onChange={handleFileChange} />
+            <input multiple type="file" onChange={handleFileChange} />
             <button onClick={handleUpload}>Upload</button>
         </div>
     )
