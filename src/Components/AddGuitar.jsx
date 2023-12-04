@@ -1,6 +1,10 @@
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import axios from "axios"
 
 export default function AddGuitar() {
+
+
 
     let initialInput = {
         photos: []
@@ -9,55 +13,74 @@ export default function AddGuitar() {
     let fileList = []
     const navigate = useNavigate()
 
+    const [file, setFile] = useState(null);
+
+    const handlePhotoChange = (e) => {
+        setFile(e.target.files);
+        console.log("we settni state", e.target.files)
+        for (let i = 0; i < e.target.files.length; i++) {
+            initialInput.photos.push(`/home/travis/frontend/fireweed-guitars/build/static/media/${e.target.files[i].name}`)
+        }
+    };
+
     function handleChange(e){
         initialInput[e.target.name] = e.target.value
-        console.log('nammme', e.target.name)
         console.log('cahnaged', initialInput)
     }
 
-    function handlePhotoChange(e) {
-        console.log('photochanged', e.target.files)
-        for (let i = 0; i < e.target.files.length; i++) {
-            initialInput.photos.push(`/static/media/${e.target.files[i].name}`)
+    const handleUpload = async () => {
+        for (let i = 0; i < file.length; i++) {
+            try {
+                const formData = new FormData();
+                formData.append('file', file[i]);
+                console.log('uploading this file', file[i])
+    
+                await axios.post('https://fireweed-photo.ttguitarnoob.cloud/photos', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
+                });
+    
+                console.log('File uploaded successfully');
+            } catch (error) {
+                console.error('Error uploading file:', error.message);
+            }
         }
-        fileList = e.target.files
-    }
+    };
+
+    // function handlePhotoChange(e) {
+    //     console.log('photochanged', e.target.files)
+    //     for (let i = 0; i < e.target.files.length; i++) {
+    //         initialInput.photos.push(`/static/media/${e.target.files[i].name}`)
+    //     }
+    //     fileList = e.target.files
+    // }
 
     async function handleSubmit(e){
         e.preventDefault()
         console.log('submitted', initialInput)
         const url = "https://flaskapi.ttguitarnoob.cloud/guitars"
-        const photoUrl = "http://localhost:3005/photos"
         const options = {
             method: "POST",
             body: JSON.stringify(initialInput),
+            mode: "cors",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
         }
         console.log('submittadaada', fileList)
 
-        try{
-            await fetch(photoUrl, {
-                method: "POST",
-                headers: {
-                    "Content-type": "multipart/form-data"
-                },
-                body: fileList
-            })
-        } catch (err) {
-            console.log('stupidity happened in general', err)
-        }
+        handleUpload()
 
-        // try {
-        //     const response = await fetch(url, options)
-        //     console.log('here')
-        //     console.log('here 2')
-        //     navigate('/guitars')
-        //     return response
-        // } catch(err) {
-        //     console.log('the world ended when trying to create that', err)
-        // }
+        try {
+            const response = await fetch(url, options)
+            console.log('here')
+            console.log('here 2')
+            navigate('/guitars')
+            return response
+        } catch(err) {
+            console.log('the world ended when trying to create that', err)
+        }
     }
 
     return(
